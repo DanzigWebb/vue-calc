@@ -47,7 +47,7 @@ input[type="text"] {
 .numbers {
   display: flex;
   flex-wrap: wrap;
-  height: 95%;
+  height: 90%;
 }
 
 .cell {
