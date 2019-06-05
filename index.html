@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <link rel="stylesheet" href="styles/css/main.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,15 +12,28 @@
 
 <body>
   <div id="app">
+      <input type="text" v-model="result" placeholder="0">
+      <input type="text" v-model="resultLive" placeholder="0">
     <div class="grid">
       <div class="numbers">
-      <input type="text" v-model="result" placeholder="0">
+        <div class="calc-top">
+            <button @click="deleteC()" class="cell op">C</button>
+            <button @click="reset()" class="cell op">R</button>
+        </div>
+
+      <div class="calc-center">
+        <div class="numbers-btns">
+          <button @click="input(num)" class="cell num" v-for="num in numbers">{{num}}</button>
+          <button @click="calc()" class="cell op calc">=</button>
+        </div>
+        <div class="operate-btns">
+          <button @click="input(op)" class="cell op" v-for="op in operations">{{op}}</button>
+        </div>
+      </div>
+
       
-      <button @click="input(num)" class="cell num" v-for="num in numbers">{{num}}</button>
-      <button @click="input(op)" class="cell op" v-for="op in operations">{{op}}</button>
-      <button @click="deleteC()" class="cell op">C</button>
-      <button @click="reset()" class="cell op">R</button>
-      <button @click="calc()" class="cell op calc">=</button>
+
+      
       </div>
 
     </div>
