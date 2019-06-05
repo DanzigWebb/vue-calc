@@ -27,13 +27,18 @@ var vue = new Vue({
         this.result = eval(this.result);
       }
     },
-    calcLive: function() {
-      this.resultLive = eval(this.result);
-    },
     deleteC: function () {
       this.result = this.result.toString();
       this.result = this.result.slice(0, -1);
+    },
+
+      calcLive: function () {
+        this.resultLive = eval(this.result.replace("^", "**"));
     }
   }
 
 })
+
+document.body.addEventListener('touchmove', function (event) {
+  event.preventDefault();
+}, false);
