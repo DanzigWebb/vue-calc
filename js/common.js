@@ -3,26 +3,28 @@ var vue = new Vue({
   data: {
     result: '',
     resultLive: '',
-    numbers: [1,2,3,4,5,6,7,8,9,0, '.'],
+    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.'],
     operations: ['+', '-', '*', '/', '^'],
 
   },
-  methods:  {
-    input: function(par) {
-      this.result = this.result.toString();
-      this.result+=par;
+  methods: {
+    input: function (par) {
+      if (typeof (this.result) == "number" ) {
+        this.result = this.result.toString();
+      }
+      this.result += par;
       this.calcLive();
     },
-    reset: function() {
+    reset: function () {
       this.result = '';
+      this.resultLive = this.result;
     },
-    calc: function() {
+    calc: function () {
       if (eval(this.result) == Infinity) {
         this.deleteC();
         alert('Делить на ноль не безопасно!');
-      } 
-      
-        else {
+      }
+      else {
         this.result = this.result.replace("^", "**");
         this.result = eval(this.result);
       }
@@ -30,15 +32,12 @@ var vue = new Vue({
     deleteC: function () {
       this.result = this.result.toString();
       this.result = this.result.slice(0, -1);
+      this.resultLive = this.result;
     },
-
-      calcLive: function () {
-        this.resultLive = eval(this.result.replace("^", "**"));
+    calcLive: function () {
+      this.resultLive = eval(this.result.replace("^", "**"));
     }
   }
-
 })
 
-document.body.addEventListener('touchmove', function (event) {
-  console.log(event)
-}, false);
+

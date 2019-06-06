@@ -1,5 +1,5 @@
 * {
-  font-family: 'Gilroy',sans-serif;
+  font-family: "Gilroy", sans-serif;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   font-weight: 500;
@@ -20,6 +20,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100vh;
+  margin: 0;
 }
 
 #app {
@@ -30,7 +31,7 @@ body {
           box-shadow: 0 3px 15px grey;
 }
 
-input {
+.input {
   width: calc(100% - 20px);
   max-width: 100%;
   border: 0;
@@ -40,6 +41,11 @@ input {
   text-align: right;
   padding: 0;
   padding-right: 20px;
+}
+
+.input--result {
+  height: 35px;
+  background-color: #dcdcdc;
 }
 
 .grid {
@@ -92,7 +98,7 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 70%;
+  height: 75%;
 }
 
 .numbers-btns {
