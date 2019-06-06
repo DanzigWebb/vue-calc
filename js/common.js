@@ -13,11 +13,11 @@ var vue = new Vue({
         this.result = this.result.toString();
       }
       this.result += par;
-      this.calcLive();
+      // this.calcLive();
     },
     reset: function () {
       this.result = '';
-      this.resultLive = this.result;
+      // this.resultLive = this.result;
     },
     calc: function () {
       if (eval(this.result) == Infinity) {
@@ -32,11 +32,11 @@ var vue = new Vue({
     deleteC: function () {
       this.result = this.result.toString();
       this.result = this.result.slice(0, -1);
-      this.resultLive = this.result;
+      // this.resultLive = this.result;
     },
-    calcLive: function () {
-      this.resultLive = eval(this.result.replace("^", "**"));
-    }
+    // calcLive: function () {
+    //   this.resultLive = eval(this.result.replace("^", "**"));
+    // }
   }
 })
 
