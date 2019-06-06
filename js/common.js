@@ -40,5 +40,5 @@ var vue = new Vue({
 })
 
 document.body.addEventListener('touchmove', function (event) {
-  event.preventDefault();
+  console.log(event)
 }, false);
